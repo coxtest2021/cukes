@@ -37,7 +37,7 @@ public class Steps {
     }
 
 
-    @When("^I request \\$(\\d+)$")
+    @When("^I withdraw \\$(\\d+)$")
     public void iRequest$(int arg1) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();

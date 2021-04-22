@@ -4,6 +4,7 @@ import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Assert;
 
 public class Steps {
 
@@ -20,6 +21,9 @@ public class Steps {
     {
         Account myAccount = new Account();
         myAccount.deposit(amount);
+
+        Assert.assertEquals("Incorrect account  balance -",
+                amount, myAccount.getBalance());
     }
 
 

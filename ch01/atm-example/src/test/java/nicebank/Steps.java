@@ -11,6 +11,8 @@ import org.junit.Test;
 
 public class Steps {
 
+    private Account myAccount;
+
     class Account
     {
         private Money balance = new Money();
@@ -38,7 +40,7 @@ public class Steps {
     public void iHaveDeposited$InMyAccount(@Transform(MoneyConverter.class) Money amount)
             throws Throwable
     {
-        Account myAccount = new Account();
+        myAccount = new Account();
         myAccount.deposit(amount);
 
         Assert.assertEquals("Incorrect account balance -",

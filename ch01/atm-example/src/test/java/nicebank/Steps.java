@@ -10,7 +10,25 @@ import org.junit.Assert;
 
 public class Steps {
 
-    private Account myAccount;
+    private KnowsMyAccount helper;
+
+    public Steps()
+    {
+        helper = new KnowsMyAccount();
+    }
+
+    class KnowsMyAccount
+    {
+        private Account myAccount;
+
+        public Account getMyAccount() {
+            if(myAccount == null)
+            {
+                myAccount = new Account();
+            }
+            return myAccount;
+        }
+    }
 
     class Account
     {
@@ -39,18 +57,17 @@ public class Steps {
     public void iHaveDeposited$InMyAccount(@Transform(MoneyConverter.class) Money amount)
             throws Throwable
     {
-        myAccount = new Account();
-        myAccount.deposit(amount);
+        helper.getMyAccount().deposit(amount);
 
         Assert.assertEquals("Incorrect account balance -",
-                amount, myAccount.getBalance());
+                amount, helper.getMyAccount().getBalance());
     }
 
 
     @When("^I withdraw \\$(\\d+)$")
     public void iRequest$(int dollars) throws Throwable {
         Teller teller = new Teller();
-        teller.withdrawFrom(myAccount, dollars);
+        teller.withdrawFrom(helper.getMyAccount(), dollars);
     }
 
     @Then("^\\$(\\d+) should be dispensed$")

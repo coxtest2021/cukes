@@ -7,7 +7,6 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import nicebank.transforms.MoneyConverter;
 import org.junit.Assert;
-import org.junit.Test;
 
 public class Steps {
 

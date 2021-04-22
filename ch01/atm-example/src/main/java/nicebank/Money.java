@@ -75,5 +75,6 @@ public class Money {
             equal = (this.dollars() == otherMoney.dollars()
                     && this.cents() == otherMoney.cents());
         }
+        return equal;
     }
 }

@@ -23,13 +23,15 @@ public class Steps {
         }
     }
 
-    @Given("^I have deposited \\$(\\d+) in my account$")
-    public void iHaveDeposited$InMyAccount(int amount)
+    @Given("^I have deposited \\$([\\d]+)\\.([\\d][\\d]) in my account$")
+    public void iHaveDeposited$InMyAccount(int dollars, int cents)
     {
         Account myAccount = new Account();
+        Money amount = new Money(dollars, cents);
+
         myAccount.deposit(amount);
 
-        Assert.assertEquals("Incorrect account  balance -",
+        Assert.assertEquals("Incorrect account balance -",
                 amount, myAccount.getBalance());
     }
 

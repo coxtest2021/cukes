@@ -9,7 +9,7 @@ public class Steps {
 
     class Account
     {
-        public Account(int openingBalance)
+        public void deposit(int amount)
         {
 
         }
@@ -18,7 +18,8 @@ public class Steps {
     @Given("^I have deposited \\$(\\d+) in my account$")
     public void iHaveDeposited$InMyAccount(int amount)
     {
-        new Account(amount);
+        Account myAccount = new Account();
+        myAccount.deposit(amount);
     }
 
 

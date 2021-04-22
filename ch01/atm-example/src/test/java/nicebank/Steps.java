@@ -7,6 +7,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import nicebank.transforms.MoneyConverter;
 import org.junit.Assert;
+import org.junit.Test;
 
 public class Steps {
 
@@ -38,9 +39,9 @@ public class Steps {
 
 
     @When("^I withdraw \\$(\\d+)$")
-    public void iRequest$(int arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    public void iRequest$(int dollars) throws Throwable {
+        Teller teller = new Teller();
+        teller.withdrawFrom(myAccount, dollars);
     }
 
     @Then("^\\$(\\d+) should be dispensed$")

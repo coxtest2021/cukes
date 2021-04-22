@@ -10,16 +10,17 @@ import org.junit.Assert;
 
 public class Steps {
 
-    private KnowsMyAccount helper;
+    private KnowsTheDomain helper;
 
     public Steps()
     {
-        helper = new KnowsMyAccount();
+        helper = new KnowsTheDomain();
     }
 
-    class KnowsMyAccount
+    class KnowsTheDomain
     {
         private Account myAccount;
+        private CashSlot cashSlot;
 
         public Account getMyAccount() {
             if(myAccount == null)
@@ -27,6 +28,15 @@ public class Steps {
                 myAccount = new Account();
             }
             return myAccount;
+        }
+
+        public CashSlot getCashSlot()
+        {
+            if(cashSlot == null)
+            {
+                cashSlot = new CashSlot();
+            }
+            return cashSlot;
         }
     }
 
@@ -53,6 +63,14 @@ public class Steps {
         }
     }
 
+    class CashSlot
+    {
+        public int getContents()
+        {
+            return 0;
+        }
+    }
+
     @Given("^I have deposited (\\$\\d+\\.\\d+) in my account$")
     public void iHaveDeposited$InMyAccount(@Transform(MoneyConverter.class) Money amount)
             throws Throwable
@@ -71,9 +89,9 @@ public class Steps {
     }
 
     @Then("^\\$(\\d+) should be dispensed$")
-    public void $ShouldBeDispensed(int arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    public void $ShouldBeDispensed(int dollars) throws Throwable {
+        Assert.assertEquals("Incorrect amount dispensed -",
+                dollars, helper.getCashSlot().contents());
     }
 
 

@@ -91,7 +91,7 @@ public class Steps {
     @Then("^\\$(\\d+) should be dispensed$")
     public void $ShouldBeDispensed(int dollars) throws Throwable {
         Assert.assertEquals("Incorrect amount dispensed -",
-                dollars, helper.getCashSlot().contents());
+                dollars, helper.getCashSlot().getContents());
     }
 
 

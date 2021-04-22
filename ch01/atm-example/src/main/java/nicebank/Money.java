@@ -24,6 +24,11 @@ public class Money {
         this.cents = Integer.parseInt(matcher.group(2));
     }
 
+    public Money() {
+        this.dollars = 0;
+        this.cents = 0;
+    }
+
     public int cents()
     {
         return cents;

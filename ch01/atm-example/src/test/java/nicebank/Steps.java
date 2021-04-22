@@ -26,6 +26,14 @@ public class Steps {
         }
     }
 
+    class Teller
+    {
+        public void withdrawFrom(Account account, int dollars)
+        {
+
+        }
+    }
+
     @Given("^I have deposited (\\$\\d+\\.\\d+) in my account$")
     public void iHaveDeposited$InMyAccount(@Transform(MoneyConverter.class) Money amount)
             throws Throwable

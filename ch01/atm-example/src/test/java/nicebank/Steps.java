@@ -25,7 +25,7 @@ public class Steps {
         }
     }
 
-    @Given("^I have deposited \\$(\\d+\\.\\d+) in my account$")
+    @Given("^I have deposited (\\$\\d+\\.\\d+) in my account$")
     public void iHaveDeposited$InMyAccount(@Transform(MoneyConverter.class) Money amount)
             throws Throwable
     {

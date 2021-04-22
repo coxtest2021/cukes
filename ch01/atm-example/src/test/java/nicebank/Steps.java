@@ -14,6 +14,11 @@ public class Steps {
         {
 
         }
+
+        public int getBalance()
+        {
+            return 0;
+        }
     }
 
     @Given("^I have deposited \\$(\\d+) in my account$")

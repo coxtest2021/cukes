@@ -8,6 +8,7 @@
 
     <properties>
         <cucumber.version>1.2.0</cucumber.version>
+        <jetty.version>9.2.0.M0</jetty.version>
         <junit.version>4.11</junit.version>
         <picocontainer.version>2.14.2</picocontainer.version>
     </properties>

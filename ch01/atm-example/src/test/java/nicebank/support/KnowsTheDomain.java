@@ -1,13 +1,24 @@
 package nicebank.support;
 
-import nicebank.AtmServer;
 import nicebank.actors.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 public class KnowsTheDomain {
 
     private Account myAccount;
     private CashSlot cashSlot;
     private Teller teller;
+    private EventFiringWebDriver webDriver;
+
+    public EventFiringWebDriver getWebDriver()
+    {
+        if(webDriver == null)
+        {
+            webDriver = new EventFiringWebDriver(new FirefoxDriver());
+        }
+        return webDriver;
+    }
 
     public Account getMyAccount() {
         if(myAccount == null)

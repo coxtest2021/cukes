@@ -7,11 +7,11 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 239823600,
+  "duration": 250602499,
   "status": "passed"
 });
 formatter.before({
-  "duration": 105200,
+  "duration": 86399,
   "status": "passed"
 });
 formatter.scenario({
@@ -37,6 +37,11 @@ formatter.step({
   "name": "$20 should be dispensed",
   "keyword": "Then "
 });
+formatter.step({
+  "line": 6,
+  "name": "The balance in my account must be $80.00",
+  "keyword": "And "
+});
 formatter.match({
   "arguments": [
     {
@@ -47,7 +52,7 @@ formatter.match({
   "location": "AccountSteps.iHaveDeposited$InMyAccount(Money)"
 });
 formatter.result({
-  "duration": 53380701,
+  "duration": 55094300,
   "status": "passed"
 });
 formatter.match({
@@ -60,7 +65,7 @@ formatter.match({
   "location": "TellerSteps.iRequest$(int)"
 });
 formatter.result({
-  "duration": 4232272201,
+  "duration": 4155761500,
   "status": "passed"
 });
 formatter.match({
@@ -73,20 +78,33 @@ formatter.match({
   "location": "CashSlotSteps.$ShouldBeDispensed(int)"
 });
 formatter.result({
-  "duration": 239900,
+  "duration": 207899,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "$80.00",
+      "offset": 34
+    }
+  ],
+  "location": "AccountSteps.theBalanceIs(Money)"
+});
+formatter.result({
+  "duration": 58400,
   "status": "passed"
 });
 formatter.after({
-  "duration": 16346600,
+  "duration": 89435199,
   "status": "passed"
 });
 formatter.embedding("image/png", "embedded0.png");
 formatter.after({
-  "duration": 915345600,
+  "duration": 739565600,
   "status": "passed"
 });
 formatter.after({
-  "duration": 93200,
+  "duration": 81000,
   "status": "passed"
 });
 });

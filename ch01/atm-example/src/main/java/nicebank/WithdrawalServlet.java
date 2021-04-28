@@ -24,7 +24,7 @@ public class WithdrawalServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
-        Teller teller = new AutomatedTeller(cashSlot);
+        Teller teller = new AutomatedTeller(cashSlot, account);
         int amount = Integer.parseInt(request.getParameter("amount"));
         teller.withdrawFrom(account, amount);
 

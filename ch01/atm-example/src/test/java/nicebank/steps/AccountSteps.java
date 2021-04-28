@@ -1,7 +1,9 @@
 package nicebank.steps;
 
 import cucumber.api.Transform;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import nicebank.Money;
 import nicebank.support.KnowsTheDomain;
 import nicebank.transforms.MoneyConverter;
@@ -25,4 +27,14 @@ public class AccountSteps {
         Assert.assertEquals("Incorrect account balance -",
                 amount, helper.getMyAccount().getBalance());
     }
+
+    @And("^The balance in my account must be (\\$\\d+\\.\\d+)$")
+    public void theBalanceIs(@Transform(MoneyConverter.class) Money amount)
+            throws Throwable
+    {
+
+        Assert.assertEquals("Incorrect account balance -",
+                amount, helper.getMyAccount().getBalance());
+    }
+
 }

@@ -17,5 +17,6 @@ public class CashSlotSteps {
     public void $ShouldBeDispensed(int dollars) throws Throwable {
         Assert.assertEquals("Incorrect amount dispensed -",
                 dollars, helper.getCashSlot().getContents());
+
     }
 }

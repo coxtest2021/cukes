@@ -1,8 +1,9 @@
 package nicebank.actors;
 
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.openqa.selenium.By;
 
 public class AtmUserInterface implements Teller{
 

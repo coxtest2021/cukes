@@ -1,9 +1,0 @@
-nicebank\AtmServer.class
-nicebank\WithdrawalServlet.class
-nicebank\Money.class
-nicebank\actors\AtmUserInterface.class
-nicebank\actors\Account.class
-nicebank\actors\CashSlot.class
-nicebank\actors\Teller.class
-nicebank\AtmServlet.class
-nicebank\actors\AutomatedTeller.class

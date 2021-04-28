@@ -1,9 +1,0 @@
-nicebank\hooks\WebDriverHooks.class
-nicebank\steps\AccountSteps.class
-nicebank\steps\CashSlotSteps.class
-nicebank\transforms\MoneyConverter.class
-nicebank\hooks\ServerHooks.class
-nicebank\hooks\SomeTestHooks.class
-nicebank\steps\TellerSteps.class
-nicebank\RunCukesTest.class
-nicebank\support\KnowsTheDomain.class

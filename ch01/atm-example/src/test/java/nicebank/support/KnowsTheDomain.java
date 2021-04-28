@@ -41,7 +41,7 @@ public class KnowsTheDomain {
     {
         if(teller == null)
         {
-            teller = new AtmUserInterface(this.getCashSlot());
+            teller = new AtmUserInterface(getWebDriver());
         }
         return teller;
     }

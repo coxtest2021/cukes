@@ -5,10 +5,11 @@ import cucumber.api.java.After;
 import nicebank.support.KnowsTheDomain;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 public class WebDriverHooks {
 
-    private KnowsTheDomain helper;
+   private KnowsTheDomain helper;
 
     public WebDriverHooks(KnowsTheDomain helper)
     {
@@ -19,9 +20,9 @@ public class WebDriverHooks {
     public void finish(Scenario scenario)
     {
         try {
-            byte[] screenhot =
+            byte[] screenshot =
                     helper.getWebDriver().getScreenshotAs(OutputType.BYTES);
-            scenario.embed(screenhot, "image/png");
+            scenario.embed(screenshot, "image/png");
             System.out.println("******** screenshot taken!");
         } catch (WebDriverException somePlatformsDontSupportScreenshots)
         {

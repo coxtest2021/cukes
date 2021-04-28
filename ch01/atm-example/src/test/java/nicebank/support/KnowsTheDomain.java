@@ -1,8 +1,7 @@
 package nicebank.support;
 
-import nicebank.actors.Account;
-import nicebank.actors.CashSlot;
-import nicebank.actors.Teller;
+import nicebank.AtmServer;
+import nicebank.actors.*;
 
 public class KnowsTheDomain {
 
@@ -31,7 +30,7 @@ public class KnowsTheDomain {
     {
         if(teller == null)
         {
-            teller = new Teller(this.getCashSlot());
+            teller = new AtmUserInterface(this.getCashSlot());
         }
         return teller;
     }

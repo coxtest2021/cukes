@@ -3,7 +3,7 @@ package nicebank.actors;
 import nicebank.actors.Account;
 import nicebank.actors.CashSlot;
 
-public class AutomatedTeller {
+public class AutomatedTeller implements Teller{
 
     private CashSlot cashSlot;
 

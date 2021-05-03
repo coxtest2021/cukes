@@ -7,6 +7,7 @@
     <artifactId>atm-example</artifactId>
 
     <properties>
+        <apache.commons>2.6</apache.commons>
         <cucumber.version>1.2.0</cucumber.version>
         <jetty.version>9.2.0.M0</jetty.version>
         <junit.version>4.11</junit.version>
@@ -65,6 +66,11 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-api</artifactId>
             <version>3.141.59</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${apache.commons}</version>
         </dependency>
     </dependencies>
 

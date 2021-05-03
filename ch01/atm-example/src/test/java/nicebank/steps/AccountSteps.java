@@ -3,7 +3,6 @@ package nicebank.steps;
 import cucumber.api.Transform;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
 import nicebank.Money;
 import nicebank.support.KnowsTheDomain;
 import nicebank.transforms.MoneyConverter;

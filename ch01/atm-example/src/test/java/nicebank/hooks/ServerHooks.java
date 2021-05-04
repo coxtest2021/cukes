@@ -16,7 +16,7 @@ public class ServerHooks {
         this.helper = helper;
     }
 
-    @Before
+    @Before(order = 3)
     public void startServer() throws Exception
     {
         server = new AtmServer(PORT, helper.getCashSlot(), helper.getMyAccount());

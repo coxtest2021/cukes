@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class BalanceStore
@@ -41,19 +43,40 @@ public class BalanceStore
 
     public static Money getBalance()
     {
-        File balanceFile = new File(BALANCE_FILE_PATH + "/balance");
+        File messagesFolder = new File(BALANCE_FOLDER);
+        File[] messages = messagesFolder.listFiles();
+
+        String message = "";
+
+        if(messages != null && messages.length > 0)
+        {
+            Arrays.sort(messages, new Comparator<File>() {
+                @Override
+                public int compare(File o1, File o2) {
+                    return Integer.parseInt(o1.getName()) -
+                            Integer.parseInt(o2.getName());
+                }
+            });
+
+        }
 
         Scanner scanner = null;
 
         try {
-            scanner = new Scanner(balanceFile);
+            scanner = new Scanner(messages[0]);
+
+            if(scanner.hasNextLine())
+            {
+                message = scanner.nextLine();
+                scanner.close();
+            } else
+            {
+                scanner.close();
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
-        Money balance = new Money(scanner.nextLine());
-        scanner.close();
-
-        return balance;
+        return new Money(message);
     }
 }

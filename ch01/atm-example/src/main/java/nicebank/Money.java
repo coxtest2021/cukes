@@ -38,7 +38,7 @@ public class Money {
         return dollars;
     }
 
-    public Money addMoney(Money amount)
+    public Money add(Money amount)
     {
         int newCents = cents + amount.cents();
         int newDollars = dollars + amount.dollars();

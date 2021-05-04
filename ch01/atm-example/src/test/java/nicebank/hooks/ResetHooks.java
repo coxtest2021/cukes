@@ -6,7 +6,7 @@ import nicebank.actors.TransactionQueue;
 
 public class ResetHooks
 {
-    @Before
+    @Before(order = 2)
     public void reset()
     {
         TransactionQueue.clear();

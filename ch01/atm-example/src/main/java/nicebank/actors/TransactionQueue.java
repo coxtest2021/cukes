@@ -2,7 +2,6 @@ package nicebank.actors;
 
 import org.apache.commons.io.FileUtils;
 
-import java.awt.image.WritableRenderedImage;
 import java.io.*;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -58,11 +57,13 @@ public class TransactionQueue
         if(messages != null && messages.length > 0)
         {
             Arrays.sort(messages, new Comparator<File>() {
+                @Override
                 public int compare(File o1, File o2) {
                     return Integer.parseInt(o1.getName()) -
                             Integer.parseInt(o2.getName());
                 }
             });
+
         }
 
         Scanner scanner = null;

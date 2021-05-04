@@ -21,7 +21,7 @@ public class AccountSteps {
     public void iHaveDeposited$InMyAccount(@Transform(MoneyConverter.class) Money amount)
             throws Throwable
     {
-        helper.getMyAccount().deposit(amount);
+        helper.getMyAccount().credit(amount);
 
         Assert.assertEquals("Incorrect account balance -",
                 amount, helper.getMyAccount().getBalance());

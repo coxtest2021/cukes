@@ -3,17 +3,22 @@ package nicebank.actors;
 import nicebank.Money;
 
 public class Account {
-    private Money balance = new Money();
 
-    public void deposit(Money amount)
+    private TransactionQueue queue = new TransactionQueue();
+
+    public void credit(Money amount)
     {
-        balance = balance.addMoney(amount);
+        queue.write("+" + amount.toString());
+    }
+
+    public void debit(int dollars)
+    {
+        Money amount = new Money(dollars, 0);
+        queue.write("-" + amount.toString());
     }
 
     public Money getBalance()
     {
-        return balance;
+        return BalanceStore.getBalance();
     }
-
-    public void debit(Money amount) { balance = balance.minus(amount);}
 }

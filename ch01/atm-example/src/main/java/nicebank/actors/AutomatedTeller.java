@@ -18,6 +18,6 @@ public class AutomatedTeller implements Teller{
     public void withdrawFrom(Account account, int dollars)
     {
         cashSlot.dispense(dollars);
-        account.debit(new Money(dollars, 0));
+        account.debit(dollars);
     }
 }

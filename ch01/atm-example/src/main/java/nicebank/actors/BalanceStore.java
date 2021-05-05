@@ -6,13 +6,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Scanner;
 
 public class BalanceStore
 {
-    private static String BALANCE_FILE_PATH = "./balance";
+    private static String BALANCE_FILE_PATH = "./balance/balance";
 
     public static void clear() {
         new File(BALANCE_FILE_PATH).delete();

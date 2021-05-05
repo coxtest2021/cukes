@@ -23,6 +23,16 @@ public class AccountSteps {
     {
         helper.getMyAccount().credit(amount);
 
+        int pollInterval = 100;
+        int timeoutMillisecs = 5000;
+
+        while(!helper.getMyAccount().getBalance().equals(amount) && timeoutMillisecs > 0)
+        {
+            timeoutMillisecs -= pollInterval;
+
+            Thread.sleep(pollInterval);
+        }
+
         Assert.assertEquals("Incorrect account balance -",
                 amount, helper.getMyAccount().getBalance());
     }
@@ -31,6 +41,16 @@ public class AccountSteps {
     public void theBalanceIs(@Transform(MoneyConverter.class) Money amount)
             throws Throwable
     {
+
+        int pollInterval = 100;
+        int timeoutMillisecs = 5000;
+
+        while(!helper.getMyAccount().getBalance().equals(amount) && timeoutMillisecs > 0)
+        {
+            timeoutMillisecs -= pollInterval;
+
+            Thread.sleep(pollInterval);
+        }
 
         Assert.assertEquals("Incorrect account balance -",
                 amount, helper.getMyAccount().getBalance());

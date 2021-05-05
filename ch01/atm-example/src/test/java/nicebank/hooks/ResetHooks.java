@@ -7,8 +7,7 @@ import nicebank.actors.TransactionQueue;
 public class ResetHooks
 {
     @Before
-    public void reset()
-    {
+    public void reset() {
         TransactionQueue.clear();
         BalanceStore.clear();
     }

@@ -1,6 +1,7 @@
 package nicebank.support;
 
 import nicebank.actors.*;
+import org.javalite.activejdbc.Base;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
@@ -10,6 +11,16 @@ public class KnowsTheDomain {
     private CashSlot cashSlot;
     private Teller teller;
     private EventFiringWebDriver webDriver;
+
+    public KnowsTheDomain()
+    {
+        if (!Base.hasConnection()){
+            Base.open(
+                    "com.mysql.jdbc.Driver",
+                    "jdbc:mysql://localhost/bank",
+                    "teller", "password");
+        }
+    }
 
     public EventFiringWebDriver getWebDriver()
     {
@@ -21,11 +32,17 @@ public class KnowsTheDomain {
     }
 
     public Account getMyAccount() {
-        if(myAccount == null)
+        if(!Base.hasConnection())
         {
-            myAccount = new Account();
+            Base.open(
+                    "com.mysql.jdbc.Driver",
+                    "jdbc:mysql://localhost:3306/bank",
+                    "teller", "password"
+            );
         }
-        return myAccount;
+        Account account = Account.findFirst("number = ?", "1234");
+
+        return account;
     }
 
     public CashSlot getCashSlot()

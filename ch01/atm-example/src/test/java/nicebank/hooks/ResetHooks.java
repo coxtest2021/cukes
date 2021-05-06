@@ -1,7 +1,8 @@
 package nicebank.hooks;
 
 import cucumber.api.java.Before;
-import nicebank.actors.BalanceStore;
+import nicebank.Money;
+import nicebank.actors.Account;
 import nicebank.actors.TransactionQueue;
 
 public class ResetHooks
@@ -9,6 +10,8 @@ public class ResetHooks
     @Before
     public void reset() {
         TransactionQueue.clear();
-        BalanceStore.clear();
+        // reset balance, so that test execution is deterministic.
+        Account account = Account.findFirst("number = ?", "1234");
+        account.setBalance(new Money());
     }
 }

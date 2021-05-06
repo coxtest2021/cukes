@@ -5,6 +5,7 @@ import nicebank.actors.CashSlot;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
+import org.javalite.activejdbc.Base;
 
 public class AtmServer {
 
@@ -36,6 +37,15 @@ public class AtmServer {
 
     public static void main(String[] args) throws Exception
     {
+        if(!Base.hasConnection())
+        {
+            Base.open(
+                    "com.mysql.jdbc.Driver",
+                    "jdbc:mysql://localhost:3306/bank",
+                    "teller", "password"
+            );
+        }
+        Account account = Account.findFirst("number = ?", "1234");
 
     }
 }

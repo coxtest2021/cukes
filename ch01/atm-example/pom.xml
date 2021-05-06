@@ -7,10 +7,12 @@
     <artifactId>atm-example</artifactId>
 
     <properties>
+        <activejdbc.version>1.4.1</activejdbc.version>
         <apache.commons>2.6</apache.commons>
         <cucumber.version>1.2.0</cucumber.version>
         <jetty.version>9.2.0.M0</jetty.version>
         <junit.version>4.11</junit.version>
+        <mysql.version>8.0.23</mysql.version>
         <picocontainer.version>2.14.2</picocontainer.version>
         <selenium.version>3.141.59</selenium.version>
     </properties>
@@ -66,15 +68,16 @@
             <artifactId>commons-io</artifactId>
             <version>${apache.commons}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.27</version>
+            <version>8.0.24</version>
         </dependency>
         <dependency>
             <groupId>org.javalite</groupId>
             <artifactId>activejdbc</artifactId>
-            <version>1.4.1</version>
+            <version>${activejdbc.version}</version>
         </dependency>
     </dependencies>
 
@@ -92,11 +95,44 @@
                 </configuration>
             </plugin>
             <plugin>
+                <groupId>org.javalite</groupId>
+                <artifactId>activejdbc-instrumentation</artifactId>
+                <version>1.4.1</version>
+                <executions>
+                    <execution>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>instrument</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>4.3.1</version>
+                <configuration>
+                    <changeLogFile>src/main/resources/bank_schema.xml</changeLogFile>
+                    <driver>com.mysql.jdbc.Driver</driver>
+                    <url>jdbc:mysql://localhost:3306/bank</url>
+                    <username>teller</username>
+                    <password>password</password>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>8</source>
-                    <target>8</target>
+                    <source>6</source>
+                    <target>6</target>
                 </configuration>
             </plugin>
         </plugins>
